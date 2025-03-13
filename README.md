@@ -6,26 +6,12 @@ ATEC_competition_demo_code_2025
 
 # Introduction
 
-**This repository is a specialized branch of the gym-unrealcv project, tailored to simulate rescue task scenarios. It provides an interactive reinforcement learning (RL) environment where agents can be trained and tested in virtual rescue missions.**
+**This repository is a specialized branch of the gym-unrealcv project, tailored to simulate rescue task scenarios. It provides an interactive environment where agents can be trained and tested for rescue task in virtual worlds.**
 
 # Installation
 
 ## Dependencies
-
-- UnrealCV
-
-- Gym
-
-- CV2
-
-- Matplotlib
-
-- Numpy
-
-- Docker(Optional)
-
-- Nvidia-Docker(Optional)
-
+UnrealCV, Gym, CV2, Numpy, Docker(Optional), Nvidia-Docker(Optional)
  
 We recommend you use [anaconda](https://www.continuum.io/downloads) to install and manage your Python environment.
 
@@ -66,6 +52,13 @@ python example/rescue_demo.py --render --record_video  --keyboard
 python example/rescue_demo.py --render 
 ```
 
+
+##  Acknowledgments
+We acknowledge the following projects for their contributions:
+- [UnrealCV](https://unrealcv.org/)
+- [OpenAI Gym](https://gym.openai.com/)
+- [Unreal Engine](https://www.unrealengine.com/)
+- [UnrealZoo](http://unrealzoo.site/)
 
 
 
