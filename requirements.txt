@@ -1,0 +1,9 @@
+unrealcv
+gym==0.26
+matplotlib
+numpy==1.21.6
+wget
+opencv-python
+pynput
+docker
+ultralytics
