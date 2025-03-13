@@ -6,7 +6,19 @@ ATEC_competition_demo_code_2025
 
 # Introduction
 
-**This repository is a specialized branch of the gym-unrealcv project, tailored to simulate rescue task scenarios. It provides an interactive environment where agents can be trained and tested for rescue task in virtual worlds.**
+**This repository is a specialized branch of the [unrealzoo project](http://unrealzoo.site/), tailored to simulate rescue task scenarios. It provides an interactive environment where agents can be trained and tested for rescue task in virtual worlds.**
+
+**1.Simulation Interaction Environment:**  
+Different from traditional computer vision tasks, contestants need to conduct real-time dynamic interactions in the virtual environment provided by this competition. Contestants can use this virtual simulation platform for data collection and strategy training, and the final scoring of the competition will also be evaluated on the same platform.
+
+Examples of the simulation environment used in the competition and the first-person perspective images of the intelligent agent are shown below:
+![Description of the image](./Figure/image.png)
+
+**2.Interaction Interface:**  
+Contestants can interact with the environment through a gym-like Python interface to obtain the initial clues (a color image and a text description), as well as the first-person perspective observation information (RGB image) of the intelligent agent. They can also control the real-time movement of the intelligent agent in the environment, execute actions, and receive reward signals.
+
+Examples of the clues obtained by the intelligent agent at the initial stage.  
+![Description of the image](./Figure/task_cue.png)
 
 # Installation
 
