@@ -6,7 +6,7 @@ ATEC_competition_demo_code_2025
 
 # Introduction
 
-**This repository is a specialized branch of the [unrealzoo project](http://unrealzoo.site/), tailored to simulate rescue task scenarios. It provides an interactive environment where agents can be trained and tested for rescue task in virtual worlds.**
+**In this competition, the agent will be given image and text cues at the initial stage to help it respond to distress signals from an injured person in need of rescue. The agent must navigate a complex 3D environment, locate the objects, and transport them to designated stretchers as quickly as possible.**
 
 **1.Simulation Interaction Environment:**  
 Different from traditional computer vision tasks, contestants need to conduct real-time dynamic interactions in the virtual environment provided by this competition. Contestants can use this virtual simulation platform for data collection and strategy training, and the final scoring of the competition will also be evaluated on the same platform.
@@ -66,6 +66,7 @@ python example/rescue_demo.py --render
 
 
 ##  Acknowledgments
+**This repository is a specialized branch of the [unrealzoo project](http://unrealzoo.site/), tailored to simulate rescue task scenarios.**
 We acknowledge the following projects for their contributions:
 - [UnrealCV](https://unrealcv.org/)
 - [OpenAI Gym](https://gym.openai.com/)
