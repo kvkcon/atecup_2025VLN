@@ -7,6 +7,7 @@ from gym_rescue.envs.utils.keyboard_util import get_key_action,on_press,on_relea
 from pynput import keyboard
 import os
 import json
+from gym_rescue.example.solution import AlgSolution
 
 
 #start keyboard listener
@@ -36,7 +37,7 @@ if __name__ == '__main__':
     parser.add_argument("-v", '--record_video', dest='record_video', action='store_true', help='record task cues and observation into video')
 
     UnrealEnv = os.environ.get('UnrealEnv')
-    TEST_JSONL = os.path.join(UnrealEnv, 'test_L5.jsonl')
+    TEST_JSONL = os.path.join(UnrealEnv, 'test_L1.jsonl')
     with open(TEST_JSONL, "r") as fp:
         try:
             point_id = 0
@@ -66,7 +67,7 @@ if __name__ == '__main__':
                     env = monitor.DisplayWrapper(env, dynamic_top_down=False, fix_camera=True,get_bbox=True)
                 env = task_cue.TaskCueWrapper(env=env, test_point=content)
 
-                agent = RandomAgent(env.action_space)
+                agent = AlgSolution()#RandomAgent(env.action_space)
                 rewards = 0
                 done = False
                 Total_rewards = 0

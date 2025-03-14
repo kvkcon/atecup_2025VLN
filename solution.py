@@ -101,7 +101,9 @@ class AlgSolution:
         ob = base64.b64decode(ob)
         ob = cv2.imdecode(np.frombuffer(ob, np.uint8), cv2.IMREAD_COLOR)
         results = self.yolo_model(source=ob,imgsz=640,conf=0.1) 
+        # print("yolo results: ", results)
         boxes = results[0].boxes  # 获取所有检测框
+        # print("boxes_shape: ", boxes.shape)
         if boxes.shape[0] == 0:
             # 从列表[1, 2]中随机选择一个数
             if self.right_times >= self.try_times:
@@ -143,6 +145,8 @@ class AlgSolution:
                 return action
         for box in boxes:
             cls = int(box.cls.item())  # 获取类别ID
+            # print(f"cls: {cls}\n")
+            # print(f"self.yolo_model.names[cls]: {self.yolo_model.names[cls]}\n")
             if self.yolo_model.names[cls] == 'person' and self.person_success is False:  # 检查是否是person类别
                 # 获取边界框坐标（x1, y1, x2, y2）
                 #x0, y0, w_, h_ = box.xywh
@@ -184,7 +188,8 @@ class AlgSolution:
                             self.handle.write(json.dumps(action) + '\n')
                             self.handle.flush()
                             return action
-            elif self.yolo_model.names[cls] == 'truck' and self.person_success:  # 检查是否是person类别
+            # elif self.yolo_model.names[cls] == 'truck' and self.person_success:  # 检查是否是person类别
+            elif ('bed' in self.yolo_model.names[cls] or self.yolo_model.names[cls] == 'truck') and self.person_success:
                 # 获取边界框坐标（x1, y1, x2, y2）
                 #x0, y0, w_, h_ = box.xywh
                 res_ = box.xywh
@@ -192,7 +197,7 @@ class AlgSolution:
                 self.handle.flush()
 
                 x0, y0, w_, h_ = res_[0].tolist()
-                if w_ > 390:
+                if w_ > 420:
                     action = self.drop 
                     time.sleep(2)
                     self.handle.write(" ============================================= drop =============================================\n")
