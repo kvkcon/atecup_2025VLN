@@ -36,7 +36,7 @@ if __name__ == '__main__':
     parser.add_argument("-v", '--record_video', dest='record_video', action='store_true', help='record task cues and observation into video')
 
     UnrealEnv = os.environ.get('UnrealEnv')
-    TEST_JSONL = os.path.join(UnrealEnv, 'test_L1.jsonl')
+    TEST_JSONL = os.path.join(UnrealEnv, 'test_L5.jsonl')
     with open(TEST_JSONL, "r") as fp:
         try:
             point_id = 0

@@ -8,13 +8,25 @@ from io import BytesIO
 import base64
 from ultralytics import YOLO
 # 加载预训练的YOLO模型，如果下载了特定版本的权重，请指定路径
+import torch
+
+
+class CustomYOLO(YOLO):
+    def __init__(self, model, task='detect', verbose=True):
+        # 添加对全局变量的支持
+        torch.serialization.add_safe_globals([self.__class__])
+        super().__init__(model=model, task=task, verbose=verbose)
+
+# 修改实例化 YOLO 的方式
+
 
 class AlgSolution:
 
     def __init__(self):
-        self.yolo_model = YOLO('checkpoints/yolo11x.pt')  # 'yolov8n.pt'是YOLOv8 nano版本的预训练模型文件名，根据实际情况替换
-        if os.path.exists('/home/admin/workspace/job/logs/'):
-            self.handle = open('/home/admin/workspace/job/logs/user.log', 'w')
+        # self.yolo_model = YOLO('checkpoints/yolo11x.pt')  # 'yolov8n.pt'是YOLOv8 nano版本的预训练模型文件名，根据实际情况替换
+        self.yolo_model = CustomYOLO('checkpoints/yolov8n.pt')
+        if os.path.exists('/home/kvkcon/__Project/__Project/ATEC2025/demo_project/logs/'):
+            self.handle = open('/home/kvkcon/__Project/__Project/ATEC2025/demo_project/logs/user.log', 'w')
         else:
             self.handle = open('user.log', 'w')
         self.handle.write("model loaded\n")
