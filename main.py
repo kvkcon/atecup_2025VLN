@@ -45,7 +45,7 @@ with open(TEST_JSONL, "r") as fp:
         max_steps = 9999999
         timeout = content.get("timeout")
 
-        env = gym.make(env_id, action_type='Mixed', observation_type='Color', reset_type=level)
+        env = gym.make(env_id, action_type='Mixed', observation_type='Rgbd', reset_type=level)
         if env_old is not None:
             env = switch_env.SwitchEnvWrapper(env, env_old)
         env_old = env
@@ -70,6 +70,14 @@ with open(TEST_JSONL, "r") as fp:
             env.unwrapped.agent_pose = agent_loc
             env.unwrapped.ambulance_pose = ambulance_loc
             ob, info = env.reset()
+            # print(info)
+            # print(type(ob))
+            # print(ob.shape)
+            # ob = ob['Rgbd']
+            # ob.convert('RGB')
+            # import matplotlib.pyplot as plt
+            # plt.imshow(ob)
+
             env.unwrapped.unrealcv.set_appearance(env.unwrapped.injured_agent, injured_agent_id)
 
             ob, reward, termination, truncation, info = env.step([[(0, 0), 0, 0]])
