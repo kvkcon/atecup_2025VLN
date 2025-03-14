@@ -9,9 +9,6 @@ app = Flask(__name__)
 
 app.config['MAX_FORM_MEMORY_SIZE'] = 64 * 1024 * 1024
 
-# @app.route('/')
-# def index():
-#     return "Hello, Flask!"
 
 @app.route('/step', methods=['POST'])
 def step():
@@ -32,7 +29,7 @@ def synchroize():
 @app.route('/stop', methods=['POST'])
 def stop():
     msg = request.form['msg']
-    f = open('/home/kvkcon/__Project/__Project/ATEC2025/demo_project/logs/user.log', 'a')
+    f = open('/home/admin/workspace/job/logs/user.log', 'a')
     f.write(msg)
     f.close()
     return jsonify(message="success")
