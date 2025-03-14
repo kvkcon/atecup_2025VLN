@@ -1,0 +1,71 @@
+# 忽略特定目录下的所有文件
+runs/
+checkpoints/
+dataset/
+logs/
+__pycache__/
+
+# 忽略特定文件扩展名
+*.pt  # PyTorch模型文件
+*.pth  # PyTorch模型文件
+*.ipynb_checkpoints/  # Jupyter Notebook检查点
+*.pyc  # Python编译文件
+*.pyo  # Python编译文件
+*.pyd  # Python编译文件
+*.egg  # Python egg文件
+*.egg-info/  # Python egg信息文件
+*.egg-info  # Python egg信息文件
+*.whl  # Python wheel文件
+
+# 忽略虚拟环境
+venv/
+env/
+.venv/
+env.bak/
+venv.bak/
+
+# 忽略日志文件和临时文件
+*.log
+*.tmp
+*.swp  # Vim交换文件
+*.swo  # Vim交换文件
+*.lock  # 锁文件
+
+# 忽略IDE相关文件
+.vscode/
+.idea/
+*.iml  # IntelliJ IDEA文件
+*.ipynb_checkpoints/
+
+# 忽略Docker相关文件
+Dockerfile
+docker-compose.yml
+docker-compose.override.yml
+dockerfile
+
+# 忽略Jupyter Notebook相关文件
+*.ipynb_checkpoints/
+
+# 忽略其他常见文件
+Thumbs.db  # Windows缩略图数据库
+.DS_Store  # macOS资源 forks
+.gitignore  # 防止多次提交.gitignore文件本身
+
+# 忽略大型文件
+*.zip
+*.tar
+*.tar.gz
+*.tar.bz2
+*.rar
+*.7z
+
+# 忽略环境变量文件
+.env
+.env.local
+.env.development
+.env.production
+
+# 忽略构建工具生成的文件
+dist/
+build/
+*.egg-info/
